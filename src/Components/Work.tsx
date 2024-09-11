@@ -1,9 +1,17 @@
 import { Box, Typography, Stack, Breadcrumbs } from "@mui/material";
 import Reveal from "../utils/Reveal";
-import { useState } from "react";
 import styled, { keyframes } from "styled-components";
 
 // Keyframe for fade-in effect
+interface Item {
+    title: string;
+    tags: string[];
+    site?: string;
+    imageRef: string;
+    content: {
+      text: string;
+    }[];
+  }
 const fadeIn = keyframes`
   0% {
     opacity: 0;
@@ -78,7 +86,7 @@ const ProjectDescription = styled(Typography)`
 `;
 
 const Work = () => {
-  const [work, setWork] = useState<Item[]>([
+  const work=[
     {
       title: "Online C++ Compiler",
       tags: ["TypeScript", "Next.js", "Tailwind CSS", "Express.js", "Socket.IO", "Node-pty"],
@@ -145,7 +153,7 @@ const Work = () => {
         },
       ],
     },
-  ]);
+  ];
 
   return (
     <Box id="work" paddingTop="4rem" display="flex" flexDirection="column" alignItems="center" justifyContent="center" gap="2rem">
